@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#login'
+  
+  get 'profile/home', to: 'profile#home'
+  
   #root 'welcome/login'
 
   # Example of regular route:
