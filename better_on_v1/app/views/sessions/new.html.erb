@@ -28,3 +28,12 @@
     
 <% end %>
 
+<% if @sesh.errors.any? %>
+    <h2>The following errors prevented the session from getting created</h2>
+    <ul>
+        <% @sesh.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+

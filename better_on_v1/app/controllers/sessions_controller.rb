@@ -7,14 +7,19 @@ class SessionsController < ApplicationController
     def create
         @sesh = Session.new(session_params)
         
-        # if @sesh.save
-        #     flash[:notice] = "Session was created"
-        #     redirect_to sessions_path(@sesh)
-        # else
-        #     render 'new'
-        # end
+        if @sesh.save
+            flash[:notice] = "Session was created"
+            redirect_to session_path(@sesh)
+        else
+            render 'new'
+        end
         @sesh.save
+        #redirect_to sessions_show(@sesh)
         
+    end
+    
+    def show
+        @sesh = Session.find(params[:id])
     end
     
     

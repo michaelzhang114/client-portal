@@ -4,9 +4,9 @@ class Session < ActiveRecord::Base
    belongs_to :profile
    
    #Validations
-   # validates :highlights, presence:true, length: { minimum: 3 }
-   # validates :feedback, presence:true, length: { minimum: 3 }
-   # validates :profile_id, presence:true
+   validates :highlights, presence:true, length: { minimum: 3 }
+   validates :feedback, presence:true, length: { minimum: 3 }
+   validates :profile_id, presence:true
    
    
     
