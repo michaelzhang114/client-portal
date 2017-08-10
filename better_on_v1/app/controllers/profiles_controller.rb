@@ -1,7 +1,7 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
     
-   def home
-       
+   def new
+       @person = Profile.new
    end
     
 end

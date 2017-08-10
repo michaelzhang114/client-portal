@@ -1,0 +1,30 @@
+<h1>Create a new session</h1>
+
+<%= form_for @sesh do |f| %>
+
+    <p>
+        <%= f.label :profile %><br/>
+        <%= f.collection_select :profile_id, Profile.all, :id, :name, include_blank: true %>
+    </p>
+    
+    <p>
+        <%= f.label :highlights %><br/>
+        <%= f.text_field :highlights %>
+    </p>
+    
+    <p>
+        <%= f.label :feedback %><br/>
+        <%= f.text_area :feedback %>
+    </p>
+    
+    <p>
+        <%= f.label :homework %><br/>
+        <%= f.text_area :homework %>
+    </p>
+    
+    <p>
+        <%= f.submit %>
+    </p>
+    
+<% end %>
+

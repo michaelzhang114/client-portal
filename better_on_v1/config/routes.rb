@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#login'
   
-  get 'profile/home', to: 'profile#home'
+  #get 'profile/home', to: 'profile#home'
+  
+  resources :sessions
+  resources :profiles
   
   #root 'welcome/login'
 
