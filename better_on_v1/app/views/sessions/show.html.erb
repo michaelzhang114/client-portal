@@ -1,18 +1,21 @@
 <h1>Showing session</h1>
 
 <p>
-    User: <%= @sesh.profile.name %>
+    User: <%= @session.profile.name %>
 </p>
 
 <p>
-    Highlights: <%= @sesh.highlights %>
+    Highlights: <%= @session.highlights %>
 </p>
 
 <p>
-    Notes: <%= @sesh.feedback %>
+    Notes: <%= @session.feedback %>
 </p>
 
 <p>
-    Homework: <%= @sesh.homework %>
+    Homework: <%= @session.homework %>
 </p>
 
+<%= link_to "Edit this session", edit_session_path(@session) %> |
+
+<%= link_to "Back to all sessions", sessions_path %>

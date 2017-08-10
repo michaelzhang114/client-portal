@@ -1,0 +1,26 @@
+<h1>All Sessions</h1>
+
+<p>
+    <%= link_to "New Session", new_session_path %>
+</p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Date of Session</th>
+    </tr>
+    <% @sessions.each do |session| %>
+        <tr>
+            <td><%= session.profile.name %></td>
+            <td><%= session.profile.organization.organization_name %></td>
+            <td><%= session.created_at %></td>
+            <td><%= link_to 'Edit', edit_session_path(session) %></td>
+            <td><%= link_to 'Show', session_path(session) %></td>
+            <td><%= link_to 'Delete', session_path(session), method: :delete, 
+                    data: { confirm: "Are you sure?" } %></td>
+        </tr>
+    <% end %>
+</table>
+
+

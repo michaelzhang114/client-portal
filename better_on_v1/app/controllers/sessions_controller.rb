@@ -1,25 +1,51 @@
 class SessionsController < ApplicationController
     def new
-        @sesh = Session.new
-        
+        @session = Session.new
+    end
+    
+    def index
+        @sessions = Session.all
     end
     
     def create
-        @sesh = Session.new(session_params)
+        @session = Session.new(session_params)
         
-        if @sesh.save
+        if @session.save
             flash[:notice] = "Session was created"
-            redirect_to session_path(@sesh)
+            redirect_to session_path(@session)
         else
             render 'new'
         end
-        @sesh.save
+        @session.save
         #redirect_to sessions_show(@sesh)
         
     end
     
+    def destroy
+        @session = Session.find(params[:id])
+        @session.destroy
+        flash[:notice] = "Article was successfully deleted"
+        redirect_to sessions_path
+    end
+    
     def show
-        @sesh = Session.find(params[:id])
+        @session = Session.find(params[:id])
+    end
+    
+    def edit
+        @session = Session.find(params[:id])
+    end
+    
+    def update
+        @session = Session.find(params[:id])
+
+        if @session.update(session_params)
+            flash[:notice] = "Article was successfully updated"
+            redirect_to session_path(@session)
+        else
+            render 'edit'
+        end
+
     end
     
     
