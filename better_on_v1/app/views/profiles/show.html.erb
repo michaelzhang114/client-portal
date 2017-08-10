@@ -1,0 +1,13 @@
+<h1>Showing profile</h1>
+
+<p>
+    User: <%= @profile.name %>
+</p>
+
+<p>
+    Email: <%= @profile.email %>
+</p>
+
+<%= link_to "Edit this profile", edit_profile_path(@profile) %> |
+
+<%= link_to "Back to all profiles", profiles_path %>

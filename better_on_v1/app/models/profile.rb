@@ -13,4 +13,6 @@ class Profile < ActiveRecord::Base
                 uniqueness: { case_sensitive: false },
                 format: { with: VALID_EMAIL_REGEX }
     
+    validates :organization_id, presence: true
+    
 end
