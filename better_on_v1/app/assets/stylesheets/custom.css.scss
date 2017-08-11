@@ -1,2 +1,28 @@
+$navbar-default-bg: #000000;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+#logo:hover {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.btn-theme {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    width: 200px;
+}
+
+.btn-theme:hover {
+    background-color: black;
+    color:white;
+}

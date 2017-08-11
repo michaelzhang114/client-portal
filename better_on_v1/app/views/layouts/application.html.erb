@@ -7,12 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |name, msg| %>
-  <ul>
-    <li><%= msg %></li>
-  </ul>
-<% end %>
-
+  <%= render 'layouts/messages' %>
+  <% unless current_page?(login_path) %>
+    <%= render 'layouts/navigation' %>
+  <% end %>
 <%= yield %>
 
 </body>

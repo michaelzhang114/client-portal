@@ -1,26 +1,40 @@
-<h1>This is the login page for users</h1>
-
-<h1 align="center">Log in</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <%= form_for(:portal, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
     <div class="form-group">
-        <div class="control-label col-sm-2">
+        <div class="control-label col-sm-5">
             <%= f.label :email %>
         </div>
-        <div class="col-sm-8">
-            <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
+        <div class="col-sm-3">
+            <%= f.email_field :email, class: "form-control", autofocus: true %>
         </div>
     </div>
+    
     <div class="form-group">
-        <div class="control-label col-sm-2">
+        <div class="control-label col-sm-5">
             <%= f.label :password %>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-3">
             <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
         </div>
     </div>
+    
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <%= f.submit "Log in", class: 'btn btn-primary btn-lg' %>
+        <div class="col-sm-offset-5 col-sm-3">
+            <%= f.submit "BetterOn", class: 'btn btn-primary btn-med btn-theme' %>
         </div>
     </div>
+
 <% end %>
