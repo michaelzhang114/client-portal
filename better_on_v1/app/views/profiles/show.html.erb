@@ -8,9 +8,12 @@
     Email: <%= @profile.email %>
 </p>
 
-<%= link_to "Edit this profile", edit_profile_path(@profile) %> |
+<% if current_profile.admin? %>
+    <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
+    <%= link_to "Back to all profiles", profiles_path %>
+<% end %>
 
-<%= link_to "Back to all profiles", profiles_path %>
+
 
 <hr>
 
@@ -19,9 +22,7 @@
     <% @profile.sessions.each do |sesh| %>
         <p>
             Session time: <%= sesh.created_at %> <br>
-            Highlights: <%= sesh.highlights %> <br>
-            Feedback: <%= sesh.feedback %> <br>
-            Homework: <%= sesh.homework %> <br>
+            <%= link_to "see details", session_show(sesh)
         </p>
         
     <% end %>
