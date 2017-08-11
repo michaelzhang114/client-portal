@@ -1,0 +1,19 @@
+<h1>Showing organization</h1>
+
+<p>
+    Name: <%= @organization.organization_name %>
+</p>
+
+<p>
+    Users:
+    <% @organization.profiles.each do |profile| %>
+        <p>
+            <%= profile.name %> <%= link_to "see profile", edit_profile_path(profile.id) %>
+        </p>
+        
+    <% end %>
+</p>
+
+<%= link_to "Edit this organization", edit_organization_path(@organization) %> |
+
+<%= link_to "Back to all organizations", organizations_path %>

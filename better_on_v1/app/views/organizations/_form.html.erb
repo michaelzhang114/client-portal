@@ -1,0 +1,22 @@
+<%= form_for @organization do |f| %>
+
+    <p>
+        <%= f.label :organization_name %><br/>
+        <%= f.text_field :organization_name %>
+    </p>
+
+    <p>
+        <%= f.submit %>
+    </p>
+    
+<% end %>
+
+<% if @organization.errors.any? %>
+    <h2>The following errors prevented the organization from getting created</h2>
+    <ul>
+        <% @organization.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+

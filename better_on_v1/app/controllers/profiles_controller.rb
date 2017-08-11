@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
    end
    
    def index
-      @profiles = Profile.all
+      @profiles = Profile.order(:organization_id)
    end
    
    def create

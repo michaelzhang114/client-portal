@@ -1,8 +1,14 @@
 <h1>All Sessions</h1>
 
-<p>
-    <%= link_to "New Session", new_session_path %>
-</p>
+<table border="1">
+    <tr>
+        <td><%= link_to "New Session", new_session_path %></td>
+        <td><%= link_to "See All Users", profiles_path %></td>
+        <td><%= link_to "See All Organizations", organizations_path %></td>
+    </tr>
+</table>
+
+<hr>
 
 <table>
     <tr>

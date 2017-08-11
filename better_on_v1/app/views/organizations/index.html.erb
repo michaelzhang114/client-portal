@@ -1,8 +1,14 @@
 <h1>Showing all organizations</h1>
 
-<p>
-    <%= link_to "New Organization", new_organization_path %>
-</p>
+<table border="1">
+    <tr>
+        <td><%= link_to "New Organization", new_organization_path %></td>
+        <td><%= link_to "See All Sessions", sessions_path %></td>
+        <td><%= link_to "See All Users", profiles_path %></td>
+    </tr>
+</table>
+
+<hr>
 
 <table>
     <tr>
@@ -11,7 +17,7 @@
     </tr>
     <% @organizations.each do |organization| %>
         <tr>
-            <td><%= organization.name %></td>
+            <td><%= organization.organization_name %></td>
             <td><%= organization.profiles.count %></td>
             <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
             <td><%= link_to 'Show', organization_path(organization) %></td>
