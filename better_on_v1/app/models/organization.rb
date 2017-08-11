@@ -5,6 +5,6 @@ class Organization < ActiveRecord::Base
     #Validations
     before_save { self.organization_name = organization_name.downcase }
     validates :organization_name, presence:true, uniqueness: { case_sensitive:false }, 
-                    length: { minimum: 3, maximum: 25}
+                    length: { minimum: 3, maximum: 25 }
     validates :organization_id, presence:true
 end

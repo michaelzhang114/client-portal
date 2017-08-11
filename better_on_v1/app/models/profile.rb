@@ -2,7 +2,7 @@ class Profile < ActiveRecord::Base
     
     #Associations
     belongs_to :organization
-    has_many :sessions
+    has_many :sessions, dependent: :destroy
   
   
     #Validations

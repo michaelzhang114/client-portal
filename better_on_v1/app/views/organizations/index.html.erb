@@ -1,0 +1,22 @@
+<h1>Showing all organizations</h1>
+
+<p>
+    <%= link_to "New Organization", new_organization_path %>
+</p>
+
+<table>
+    <tr>
+        <th>Company name</th>
+        <th>Number of users</th>
+    </tr>
+    <% @organizations.each do |organization| %>
+        <tr>
+            <td><%= organization.name %></td>
+            <td><%= organization.profiles.count %></td>
+            <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+            <td><%= link_to 'Show', organization_path(organization) %></td>
+            <td><%= link_to 'Delete', organization_path(organization), method: :delete, 
+                    data: { confirm: "Are you sure?" } %></td>
+        </tr>
+    <% end %>
+</table>
