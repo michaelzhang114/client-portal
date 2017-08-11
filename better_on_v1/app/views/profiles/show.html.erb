@@ -22,7 +22,7 @@
     <% @profile.sessions.each do |sesh| %>
         <p>
             Session time: <%= sesh.created_at %> <br>
-            <%= link_to "see details", session_show(sesh)
+            <%= link_to "see details", session_path(sesh) %>
         </p>
         
     <% end %>

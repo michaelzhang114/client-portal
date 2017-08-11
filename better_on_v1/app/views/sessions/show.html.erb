@@ -16,6 +16,9 @@
     Homework: <%= @session.homework %>
 </p>
 
-<%= link_to "Edit this session", edit_session_path(@session) %> |
-
-<%= link_to "Back to all sessions", sessions_path %>
+<% if current_profile.admin? %>
+    <%= link_to "Edit this session", edit_session_path(@session) %> |
+    <%= link_to "Back to all sessions", sessions_path %>
+<% else %>
+    <%= link_to "Back to profile", profile_path(@session.profile) %>
+<% end %>

@@ -31,8 +31,10 @@
             <td><%= link_to 'Show', profile_path(profile) %></td>
             <% if current_profile.admin? %>
                 <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-                <td><%= link_to 'Delete', profile_path(profile), method: :delete, 
-                        data: { confirm: "Are you sure?" } %></td>
+                <% if !profile.admin? %>
+                    <td><%= link_to 'Delete', profile_path(profile), method: :delete, 
+                            data: { confirm: "Are you sure?" } %></td>
+                <% end %>
             <% end %>
         </tr>
     <% end %>
