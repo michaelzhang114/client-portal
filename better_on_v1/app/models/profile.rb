@@ -15,4 +15,7 @@ class Profile < ActiveRecord::Base
     
     validates :organization_id, presence: true
     
+    #Authentications
+    has_secure_password
+    
 end

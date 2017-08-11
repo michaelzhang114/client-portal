@@ -1,7 +1,7 @@
 <h1>Showing profile</h1>
 
 <p>
-    User: <%= @profile.name %>
+    Name: <%= @profile.name %>
 </p>
 
 <p>
@@ -11,3 +11,21 @@
 <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
 
 <%= link_to "Back to all profiles", profiles_path %>
+
+<hr>
+
+<p>
+    Sessions:
+    <% @profile.sessions.each do |sesh| %>
+        <p>
+            Session time: <%= sesh.created_at %> <br>
+            Highlights: <%= sesh.highlights %> <br>
+            Feedback: <%= sesh.feedback %> <br>
+            Homework: <%= sesh.homework %> <br>
+        </p>
+        
+    <% end %>
+</p>
+<% if logged_in? %>
+    <%= link_to 'Log out', logout_path, method: :delete %>
+<% end %>

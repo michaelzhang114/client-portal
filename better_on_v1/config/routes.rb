@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :profiles
   resources :organizations
   
+  get 'login', to: 'portals#new'
+  post 'login', to: 'portals#create'
+  delete 'logout', to: 'portals#destroy'
+  
   #root 'welcome/login'
 
   # Example of regular route:

@@ -11,6 +11,11 @@
     </p>
     
     <p>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+    </p>
+    
+    <p>
         <%= f.label :organization %><br/>
         <%= f.collection_select :organization_id, Organization.all, :id, :organization_name, include_blank: true %>
     </p>
