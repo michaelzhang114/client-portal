@@ -4,7 +4,7 @@
     <br>
     
     <h1>
-        Welcome, <%= @profile.name.capitalize %>
+        Welcome, <%= @profile.name %>
         <small><%= Organization.find(@profile.organization_id).organization_name %></small>
     </h1>
     
@@ -21,10 +21,12 @@
                 <% end %>
                 <% nail = parse_youtube(sesh.highlights) %>
                 
+                  
                 
-                <a href="#">
-                  <img class="card-img-top" src="<% 'http://img.youtube.com/vi/#{nail}/default.jpg' %>" alt="">
-                </a>
+                <%= link_to session_path(sesh) do %>
+                  <img class="card-img-top" src=" <%= "https://img.youtube.com/vi/#{nail}/default.jpg" %> ">
+                <% end %>
+                
                 
                 <div class="card-body">
                   <h4 class="card-title">
