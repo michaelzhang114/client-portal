@@ -10,14 +10,17 @@
 }
 
 .fixedElement {
-  position:fixed;
+  position: fixed;
+}
+
+.unFix {
+  position: relative;
 }
 
 body {
     padding-top: 80px; /* Whatever the height of your navbar is; the
                              default is 50px */
     font-family: 'Nunito Sans', sans-serif;
-    
 }
 
 @media (min-width: 800px) {
