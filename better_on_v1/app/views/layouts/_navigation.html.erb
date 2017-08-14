@@ -21,14 +21,18 @@
             <% end %>
         </li>
         <li>
+          <% if current_profile %>
             <%= link_to organization_path(current_profile.organization_id) do %>
                 <span class="glyphicon glyphicon-briefcase"></span>
             <% end %>
+          <% end %>
         </li>
         <li>
+          <% if current_profile %>
             <%= link_to logout_path, method: :delete do %>
                 <span class="glyphicon glyphicon-log-out"></span>
             <% end %>
+          <% end %>
           
         </li>
       <!--  <li class="dropdown">-->

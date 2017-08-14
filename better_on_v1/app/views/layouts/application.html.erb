@@ -9,11 +9,7 @@
 </head>
 <body margin-top=50px>
   <%= render 'layouts/messages' %>
-  <% unless current_page?(login_path) %>
-    
-      <%= render 'layouts/navigation' %>
-   
-  <% end %>
+  <%= render 'layouts/navigation' %>
 <%= yield %>
 
 </body>
