@@ -4,12 +4,15 @@
   <title>BetterOnV1</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body margin-top=50px>
   <%= render 'layouts/messages' %>
   <% unless current_page?(login_path) %>
     
+      <%= render 'layouts/navigation' %>
+   
   <% end %>
 <%= yield %>
 

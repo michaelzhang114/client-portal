@@ -9,6 +9,36 @@
     letter-spacing: 3px;
 }
 
+.fixedElement {
+  position:fixed;
+}
+
+body {
+    padding-top: 80px; /* Whatever the height of your navbar is; the
+                             default is 50px */
+    font-family: 'Nunito Sans', sans-serif;
+    
+}
+
+@media (min-width: 800px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+.card-img-top {
+  width: 350px;
+  height: 200px;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.pagination {
+    margin-bottom: 30px;
+}
+
 #logo:hover {
     color: #aaa;
     text-decoration: none;
@@ -350,3 +380,13 @@ ul.nav.navbar-nav.navbar-right:last-child  {
     }
 }
 
+// .modal.fade .modal-dialog {
+//   -webkit-transition: -webkit-transform 0.3s ease-out;
+//     -moz-transition: -moz-transform 0.3s ease-out;
+//       -o-transition: -o-transform 0.3s ease-out;
+//           transition: transform 0.3s ease-out;
+// }
+
+// .modal.in .modal-dialog {
+
+// }

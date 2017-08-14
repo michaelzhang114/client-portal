@@ -10,14 +10,14 @@ class PortalsController < ApplicationController
             flash[:success] = "logged in"
             redirect_to profile_path(profile)
         else
-            flash.now[:danger] = "wrong email/password"
+            flash.now[:danger] = "Invalid email/password"
             render 'new'
         end
     end
     
     def destroy
         session[:profile_id] = nil
-        flash[:success] = "logged out"
+        #flash[:success] = "logged out"
         redirect_to root_path
     end
 end
