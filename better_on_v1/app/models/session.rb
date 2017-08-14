@@ -9,5 +9,6 @@ class Session < ActiveRecord::Base
    validates :profile_id, presence:true
    
    
+   
     
 end

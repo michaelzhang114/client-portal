@@ -323,6 +323,8 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     xml-simple (1.1.5)
+    youtube_id (0.0.3)
+    youtube_images (1.0.1)
 
 PLATFORMS
   ruby
@@ -347,6 +349,8 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  youtube_id
+  youtube_images
 
 BUNDLED WITH
    1.15.3

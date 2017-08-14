@@ -7,7 +7,7 @@ class PortalsController < ApplicationController
         profile = Profile.find_by(email: params[:portal][:email].downcase)
         if profile && profile.authenticate(params[:portal][:password])
             session[:profile_id] = profile.id
-            flash[:success] = "logged in"
+            #flash[:success] = "logged in"
             redirect_to profile_path(profile)
         else
             flash.now[:danger] = "Invalid email/password"
