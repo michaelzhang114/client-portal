@@ -5,7 +5,9 @@
     
     <h1>
         Welcome, <%= @profile.name %>
+        <%= image_tag @profile.avatar.url,:class=> "img-circular"  %>
         <small><%= Organization.find(@profile.organization_id).organization_name %></small>
+  
     </h1>
     
     <hr>

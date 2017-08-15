@@ -18,4 +18,7 @@ class Profile < ActiveRecord::Base
     #Authentications
     has_secure_password
     
+    #Avatar
+    mount_uploader :avatar, AvatarUploader
+    
 end
