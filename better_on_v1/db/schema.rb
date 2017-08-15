@@ -14,12 +14,13 @@
 ActiveRecord::Schema.define(version: 20170811164301) do
 
   create_table "organizations", force: :cascade do |t|
-    t.string "organization_name"
+    t.string   "organization_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
-    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "organization_id"
