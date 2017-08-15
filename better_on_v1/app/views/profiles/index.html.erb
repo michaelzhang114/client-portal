@@ -2,13 +2,13 @@
 
 <table border="1">
     <tr>
-        <%#<% if current_profile.admin? %>
+        <% if current_profile.admin? %>
             <td><%= link_to "New User", new_profile_path %></td>
-        <%#<% end %>
+        <% end %>
         <td><%= link_to "See All Sessions", sessions_path %></td>
-        <%#<% if current_profile.admin? %>
+        <% if current_profile.admin? %>
             <td><%= link_to "See All Organizations", organizations_path %></td>
-        <%#<% end %>
+        <% end %>
     </tr>
 </table>
 
