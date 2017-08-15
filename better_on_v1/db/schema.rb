@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811164301) do
+ActiveRecord::Schema.define(version: 20170815145718) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "organization_name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170811164301) do
     t.integer  "organization_id"
     t.string   "password_digest"
     t.boolean  "admin",           default: false
+    t.string   "email"
   end
 
   create_table "sessions", force: :cascade do |t|
