@@ -1,32 +1,37 @@
-<h1>All Sessions</h1>
+<div class="container">
+    <h1>All Sessions</h1>
 
-<table border="1">
-    <tr>
-        <td><%= link_to "New Session", new_session_path %></td>
-        <td><%= link_to "See All Users", profiles_path %></td>
-        <td><%= link_to "See All Organizations", organizations_path %></td>
-    </tr>
-</table>
-
-<hr>
-
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Company</th>
-        <th>Date of Session</th>
-    </tr>
-    <% @sessions.each do |session| %>
+    <table class="table">
         <tr>
-            <td><%= session.profile.name %></td>
-            <td><%= session.profile.organization.organization_name %></td>
-            <td><%= session.created_at %></td>
-            <td><%= link_to 'Edit', edit_session_path(session) %></td>
-            <td><%= link_to 'Show', session_path(session) %></td>
-            <td><%= link_to 'Delete', session_path(session), method: :delete, 
-                    data: { confirm: "Are you sure?" } %></td>
+            <td><%= link_to "New Session", new_session_path %></td>
+            <td><%= link_to "See All Users", profiles_path %></td>
+            <td><%= link_to "See All Organizations", organizations_path %></td>
         </tr>
-    <% end %>
-</table>
+    </table>
+    
+    <hr>
+    
+    <table class="table table-bordered">
+        <tr class="active">
+            <th>Name</th>
+            <th>Company</th>
+            <th>Date of Session</th>
+            <th colspan="3">Actions</th>
+        </tr>
+        <% @sessions.each do |session| %>
+            <tr>
+                <td><%= session.profile.name %></td>
+                <td><%= session.profile.organization.organization_name %></td>
+                <td><%= session.created_at %></td>
+                <td><%= link_to 'Edit', edit_session_path(session) %></td>
+                <td><%= link_to 'Show', session_path(session) %></td>
+                <td><%= link_to 'Delete', session_path(session), method: :delete, 
+                        data: { confirm: "Are you sure?" } %></td>
+            </tr>
+        <% end %>
+    </table>
+
+</div>
+
 
 

@@ -1,41 +1,51 @@
-<h1>All Users</h1>
+<div class="container">
+    
+    <h1>All Users</h1>
 
-<table border="1">
-    <tr>
-        <% if current_profile.admin? %>
-            <td><%= link_to "New User", new_profile_path %></td>
-        <% end %>
-        <td><%= link_to "See All Sessions", sessions_path %></td>
-        <% if current_profile.admin? %>
-            <td><%= link_to "See All Organizations", organizations_path %></td>
-        <% end %>
-    </tr>
-</table>
-
-<hr>
-
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Sessions</th>
-        <th>Company</th>
-    </tr>
-    <% @profiles.each do |profile| %>
+    <table class="table">
         <tr>
-            <td><%= profile.name %></td>
-            <td><%= profile.email %></td>
-            <td><%= profile.sessions.count %></td>
-            <td><%= profile.organization.organization_name %></td>
-            
-            <td><%= link_to 'Show', profile_path(profile) %></td>
             <% if current_profile.admin? %>
-                <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-                <% if !profile.admin? %>
-                    <td><%= link_to 'Delete', profile_path(profile), method: :delete, 
-                            data: { confirm: "Are you sure?" } %></td>
-                <% end %>
+                <td><%= link_to "New User", new_profile_path %></td>
+            <% end %>
+            <td><%= link_to "See All Sessions", sessions_path %></td>
+            <% if current_profile.admin? %>
+                <td><%= link_to "See All Organizations", organizations_path %></td>
             <% end %>
         </tr>
-    <% end %>
-</table>
+    </table>
+    
+    <hr>
+    
+    <table class="table table-bordered">
+        <tr class="active">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Sessions</th>
+            <th>Company</th>
+            <th colspan="3">Actions</th>
+        </tr>
+        <% @profiles.each do |profile| %>
+            <tr>
+                <td><%= profile.name %></td>
+                <td><%= profile.email %></td>
+                <td><%= profile.sessions.count %></td>
+                <td><%= profile.organization.organization_name %></td>
+                
+                <td><%= link_to 'Show', profile_path(profile) %></td>
+                <% if current_profile.admin? %>
+                    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+                    <td>
+                    <% if !profile.admin? %>
+                        <%= link_to 'Delete', profile_path(profile), method: :delete, 
+                                data: { confirm: "Are you sure?" } %>
+                    <% end %>
+                    </td>
+                <% end %>
+            </tr>
+        <% end %>
+    </table>
+
+
+    
+</div>
+

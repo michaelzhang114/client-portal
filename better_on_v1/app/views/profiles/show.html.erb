@@ -20,14 +20,9 @@
                   <% url.match(regex)[1] %>
                 <% end %>
                 <% nail = parse_youtube(sesh.highlights) %>
-                
-                  
-                
                 <%= link_to session_path(sesh) do %>
                   <img class="card-img-top" src=" <%= "https://img.youtube.com/vi/#{nail}/default.jpg" %> ">
                 <% end %>
-                
-                
                 <div class="card-body">
                   <h4 class="card-title">
                     <%= link_to "Session #{count}", session_path(sesh) %>
@@ -39,11 +34,41 @@
             <% count +=1 %>
         <% end %>
     </div>
+    <% if current_profile.admin? %>
+      
+      
+      <class="row">
+        <%= link_to edit_profile_path(@profile) do %>
+          <button type="button" class="btn btn-default col-xs-3">Edit this Profile</button>
+        <% end %>
+        <%= link_to organizations_path do %>
+          <button type="button" class="col-xs-3 btn btn-default">See All Organizations</button>
+        <% end %>
+        <%= link_to profiles_path do %>
+          <button type="button" class="col-xs-3 btn btn-default">See All Profiles</button>
+        <% end %>
+        <%= link_to sessions_path do %>
+          <button type="button" class="col-xs-3 btn btn-default">See All Sessions</button>
+        <% end %>
+      </class>
+      <br>
+      <br>
+      <class="row">
+        <%= link_to new_organization_path do %>
+          <button type="button" class="col-xs-3 col-xs-offset-3 btn btn-default">New Organization</button>
+        <% end %>
+        <%= link_to new_profile_path do %>
+          <button type="button" class="col-xs-3 btn btn-default">New Profile</button>
+        <% end %>
+        <%= link_to new_session_path do %>
+          <button type="button" class="col-xs-3 btn btn-default">New Session</button>
+        <% end %>
+      </class>
+      
+      
+    <% end %>
 </div>
 
 
 
-<% if current_profile.admin? %>
-    <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
-    <%= link_to "Back to all profiles", profiles_path %>
-<% end %>
+
