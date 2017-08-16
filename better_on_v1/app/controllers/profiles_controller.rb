@@ -1,4 +1,9 @@
 class ProfilesController < ApplicationController
+   
+   before_action :require_same_profile, only: [:index, :edit, :update]
+   before_action :require_admin, only: [:new, :create, :destroy]
+   
+
    def new
        @profile = Profile.new
    end
@@ -49,5 +54,13 @@ class ProfilesController < ApplicationController
       def profile_params
          params.require(:profile).permit(:name, :email, :password, :organization_id, :avatar)
       end
+      
+      def require_same_profile
+         if current_profile != @profile and !current_profile.admin?
+           flash[:danger] = "You do not have access"
+           redirect_to root_path
+         end
+      end
+
     
 end

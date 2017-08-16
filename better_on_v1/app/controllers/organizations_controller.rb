@@ -1,4 +1,8 @@
 class OrganizationsController < ApplicationController
+   
+   before_action :require_same_organization, only: [:index]
+   before_action :require_admin, only: [:new, :create, :destroy]
+   
    def index
        @organizations = Organization.order(:organization_name)
    end
@@ -48,7 +52,12 @@ class OrganizationsController < ApplicationController
       def organization_params
          params.require(:organization).permit(:organization_name)
       end
-   
+      def require_same_organization
+         if current_profile.organization != @organization and !current_profile.admin?
+           flash[:danger] = "You do not have access"
+           redirect_to root_path
+         end
+      end
     
     
 end

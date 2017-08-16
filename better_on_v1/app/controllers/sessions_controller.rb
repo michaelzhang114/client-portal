@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+    
+    before_action :require_admin, only: [:new, :index, :create, :destroy, :edit, :update]
+    #before_action :require_same_profile, only: [:show]
+    
+    
     def new
         @session = Session.new
     end
@@ -53,6 +58,12 @@ class SessionsController < ApplicationController
     def session_params
       params.require(:session).permit(:profile_id, :highlights, :feedback, :homework)
     end
-
+    
+    def require_same_profile
+         if current_profile != @session.profile_id and !current_profile.admin?
+           flash[:danger] = "You do not have access"
+           redirect_to root_path
+         end
+    end
     
 end

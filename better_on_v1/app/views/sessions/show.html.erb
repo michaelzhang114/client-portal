@@ -1,3 +1,7 @@
+<% if current_profile == @session.profile || current_profile.admin? %>
+
+
+
 <script>
 $(document).ready(function(){
   // Add smooth scrolling to all links
@@ -35,7 +39,8 @@ $(document).ready(function(){
                     <h4 class="card-title">A few notes:</h4>
                     <hr>
                     <div class="well">
-                        <p><%= @session.homework %></p>
+                        
+                        <p><%= simple_format(@session.homework) %></p>
                     </div>
                     <br>
                     <% if current_profile.admin? %>
@@ -90,7 +95,9 @@ $(document).ready(function(){
     </div>
 </div>
 
-     
+<% else %>
+    <%= flash.now[:danger] = "You do not have access" %>
+<% end %>
     
 
 

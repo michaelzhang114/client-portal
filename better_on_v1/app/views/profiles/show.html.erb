@@ -1,5 +1,7 @@
 <%= render 'layouts/navigation' %>
 
+<% if current_profile == @profile || current_profile.admin? %>
+
 <div class="container">
     <br>
     
@@ -70,6 +72,6 @@
     <% end %>
 </div>
 
-
-
-
+<% else %>
+  <%= flash.now[:danger] = "you do not have admin access" %>
+<% end %>
