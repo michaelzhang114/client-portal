@@ -1,20 +1,42 @@
-<h1>Showing organization</h1>
+<div class="container">
+    <br>
+    
+    <h1>
+        Colleagues
+    </h1> <hr><br>
+    <div class="col-xs-3">
+        <h1>
+            <small>
+                @<%= @organization.organization_name %>
+            </small>
+        </h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-9">
+            <% @organization.profiles.each do |profile| %>
+              <div class="col-xs-3 btm-pad">
+                <div class="btn btn-sq-lg">
+                    <br>
+                    <i class="glyphicon glyphicon-user prof"></i><br/>
+                    <%#<%= link_to edit_profile_path(profile.id) do %>
+                        <%= profile.name %> 
+                    <%#<% end %>
+                </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    
+    
+    <% if current_profile.admin? %> 
+        <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
+        <%= link_to "Back to all organizations", organizations_path %>
+    <% end %> 
+    
+</div>
 
-<p>
-    Name: <%= @organization.organization_name %>
-</p>
 
-<p>
-    Users:
-    <% @organization.profiles.each do |profile| %>
-        <p>
-            <%= profile.name %> <%= link_to "see profile", edit_profile_path(profile.id) %>
-        </p>
-        
-    <% end %>
-</p>
 
-<% if current_profile.admin? %> 
-    <%= link_to "Edit this organization", edit_organization_path(@organization) %> |
-    <%= link_to "Back to all organizations", organizations_path %>
-<% end %> 
+
+
