@@ -26,7 +26,11 @@
         </tr>
         <% @profiles.each do |profile| %>
             <tr>
-                <td><%= profile.name %><%= image_tag @profile.avatar.url if (@profile.avatar),:class=> "img-circular"  %></td>
+                <td><%= profile.name %>
+                <% if profile.avatar? %>
+                    <%= image_tag profile.avatar.url, :class=> "img-circular"  %>
+                <% end %>
+                </td>
                 <td><%= profile.email %></td>
                 <td><%= profile.sessions.count %></td>
                 <td><%= profile.organization.organization_name %></td>
