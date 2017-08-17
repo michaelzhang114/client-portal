@@ -47,10 +47,21 @@ $(document).ready(function(){
                         <%= link_to "Edit this session", edit_session_path(@session) %> |
                         <%= link_to "Back to all sessions", sessions_path %>
                     <% else %>
+                        <h4 class="card-title">Who sees this?</h4>
+                        <hr>
+                        
+                        <div class="toggle-button toggle-button--aava">
+                            <input id="toggleButton" type="checkbox">
+                            <label for="toggleButton" data-on-text="My BetterOn group" data-off-text="Just me"></label>
+                            <div class="toggle-button__icon"></div>
+                        </div>
+                        <br><br>
                         <%= link_to profile_path(@session.profile) do %>
                             <button type="button" class="btn btn-default"> Back to Profile</button>
                         <% end %>
                     <% end %>
+                    
+                    
                 </div>
             </div>
         </div>
