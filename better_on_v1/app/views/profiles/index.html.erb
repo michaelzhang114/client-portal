@@ -26,7 +26,7 @@
         </tr>
         <% @profiles.each do |profile| %>
             <tr>
-                <td><%= profile.name %>
+                <td><%= link_to profile.name, profile_path(profile) %>
                 <% if profile.avatar? %>
                      <%# <%= image_tag profile.avatar.url, :class=> "img-circular"  %>
                 <% end %>
@@ -35,9 +35,9 @@
                 <td><%= profile.sessions.count %></td>
                 <td><%= profile.organization.organization_name %></td>
                 
-                <td><%= link_to 'Show', profile_path(profile) %></td>
+                <td><%= link_to 'New Session', new_session_path %></td>
                 <% if current_profile.admin? %>
-                    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+                    <td><%= link_to 'Edit User', edit_profile_path(profile) %></td>
                     <td>
                     <% if !profile.admin? %>
                         <%= link_to 'Delete', profile_path(profile), method: :delete, 
