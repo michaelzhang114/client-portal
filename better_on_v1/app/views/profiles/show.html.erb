@@ -8,7 +8,7 @@
     <h1>
         Welcome, <%= @profile.name %>
         <%#<%= image_tag @profile.avatar.url,:class=> "img-circular" if @profile.avatar? %>
-        <small><%= Organization.find(@profile.organization_id).organization_name %></small>
+        <small>@<%= Organization.find(@profile.organization_id).organization_name %></small>
     </h1>
     
     <hr>
@@ -24,7 +24,7 @@
                 <% end %>
                 <% nail = parse_youtube(sesh.highlights) %>
                 <%= link_to session_path(sesh) do %>
-                  <img class="card-img-top" src=" <%= "https://img.youtube.com/vi/#{nail}/default.jpg" %> ">
+                  <img class="card-img-top" src=" <%= "https://img.youtube.com/vi/#{nail}/mqdefault.jpg" %> ">
                 <% end %>
                 <div class="card-body">
                   <h4 class="card-title">
