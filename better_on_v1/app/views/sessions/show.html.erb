@@ -1,9 +1,13 @@
 <% if current_profile == @session.profile || current_profile.admin? %>
 
-
-
 <script>
+
 $(document).ready(function(){
+    
+    // $("#show_group").on('checked', function(){
+    //       
+    // });
+
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
 
@@ -27,6 +31,12 @@ $(document).ready(function(){
     } // End if
   });
 });
+
+
+
+
+
+
 </script>
 
 <div class="container container-sesh">
@@ -51,15 +61,34 @@ $(document).ready(function(){
                         <hr>
                         
                         <div class="toggle-button toggle-button--aava">
-                            <input id="toggleButton" type="checkbox">
-                            <label for="toggleButton" data-on-text="My BetterOn group" data-off-text="Just me"></label>
-                            <div class="toggle-button__icon"></div>
+                            <input id="toggleButton" type="checkbox"  >
+                            <label for="toggleButton" data-on-text="My BetterOn group" data-off-text="Just me" checked></label>
                         </div>
+                        <% if @session.show_group? %>
+                            <%= "showing group" %>
+                        <% else %>
+                            <%= "don't show" %>
+                        <% end %>
+                        
                         <br><br>
                         <%= link_to profile_path(@session.profile) do %>
                             <button type="button" class="btn btn-default"> Back to Profile</button>
                         <% end %>
-                    <% end %>
+                        
+                        <%= form_for @session do |f| %>
+                            
+                                <div class="checkbox">
+                                        <%= f.check_box :show_group %>
+                                </div>
+                                
+                                <%= f.submit "Save changes" %>
+                                <!--<input id="toggleButton" type="checkbox">-->
+                                <!--<label for="toggleButton" data-on-text="My BetterOn group" data-off-text="Just me"></label>-->
+                                
+                        
+                                <% end %>
+                           
+                        <% end %>
                     
                     
                 </div>

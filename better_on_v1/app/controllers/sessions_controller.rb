@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     
-    before_action :require_admin, only: [:new, :index, :create, :destroy, :edit, :update]
-    #before_action :require_same_profile, only: [:show]
+    before_action :require_admin, only: [:new, :index, :create, :destroy, :edit]
+    #before_action :require_same_profile, only: [:update]
     
     
     def new
@@ -35,6 +35,7 @@ class SessionsController < ApplicationController
     
     def show
         @session = Session.find(params[:id])
+        
     end
     
     def edit
@@ -45,7 +46,7 @@ class SessionsController < ApplicationController
         @session = Session.find(params[:id])
 
         if @session.update(session_params)
-            flash[:notice] = "Article was successfully updated"
+            flash[:notice] = "session was successfully updated"
             redirect_to session_path(@session)
         else
             render 'edit'
@@ -56,7 +57,7 @@ class SessionsController < ApplicationController
     
     private
     def session_params
-      params.require(:session).permit(:profile_id, :highlights, :feedback, :homework)
+      params.require(:session).permit(:profile_id, :highlights, :feedback, :homework, :show_group)
     end
     
     def require_same_profile
