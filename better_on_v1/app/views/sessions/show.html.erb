@@ -105,7 +105,7 @@ $(document).ready(function(){
                             <% url.match(regex)[1] %>
                         <% end %>
                         <% lnk = parse_youtube(@session.feedback) %>
-                        <iframe width="560" height="315" src="<%= "https://www.youtube.com/embed/#{lnk}" %>" 
+                        <iframe width="560" height="315" src="<%= "https://www.youtube.com/embed/#{lnk}?rel=0&amp;showinfo=0" %>" 
                         frameborder="0" allowfullscreen></iframe>
                     </div>
                     <br>
