@@ -64,11 +64,11 @@ $(document).ready(function(){
                             <input id="toggleButton" type="checkbox"  >
                             <label for="toggleButton" data-on-text="My BetterOn group" data-off-text="Just me" checked></label>
                         </div>
-                        <% if @session.show_group? %>
-                            <%= "showing group" %>
-                        <% else %>
-                            <%= "don't show" %>
-                        <% end %>
+                        <%# if @session.show_group? %>
+                            <%#= "showing group" %>
+                        <%# else %>
+                            <%#= "don't show" %>
+                        <%# end %> 
                         
                         <br><br>
                         <%= link_to profile_path(@session.profile) do %>
@@ -77,11 +77,11 @@ $(document).ready(function(){
                         
                         <%= form_for @session do |f| %>
                             
-                                <div class="checkbox">
-                                        <%= f.check_box :show_group %>
-                                </div>
+                                <!--<div class="checkbox">-->
+                                <!--        <%#<%= f.check_box :show_group %>-->
+                                <!--</div>-->
                                 
-                                <%= f.submit "Save changes" %>
+                                <%#<%= f.submit "Save changes" %>
                                 <!--<input id="toggleButton" type="checkbox">-->
                                 <!--<label for="toggleButton" data-on-text="My BetterOn group" data-off-text="Just me"></label>-->
                                 
