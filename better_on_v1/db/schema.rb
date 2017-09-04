@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817190232) do
+ActiveRecord::Schema.define(version: 20170904150018) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "info_content"
+    t.integer  "profile_id"
+    t.integer  "session_id"
+  end
+
+  add_index "comments", ["profile_id"], name: "index_comments_on_profile_id", using: :btree
+  add_index "comments", ["session_id"], name: "index_comments_on_session_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.string   "organization_name"
@@ -40,4 +54,6 @@ ActiveRecord::Schema.define(version: 20170817190232) do
     t.boolean  "show_group", default: false
   end
 
+  add_foreign_key "comments", "profiles"
+  add_foreign_key "comments", "sessions"
 end

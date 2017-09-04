@@ -3,6 +3,8 @@ class Profile < ActiveRecord::Base
     #Associations
     belongs_to :organization
     has_many :sessions, dependent: :destroy
+    
+    has_many :comments, dependent: :destroy
   
   
     #Validations

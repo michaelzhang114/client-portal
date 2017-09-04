@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :profiles
   resources :organizations
+  resources :comments
   
   get 'login', to: 'portals#new'
   post 'login', to: 'portals#create'
