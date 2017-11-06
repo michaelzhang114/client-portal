@@ -136,6 +136,10 @@ $(document).ready(function(){
         <!--    </div>-->
         <!--</div>-->
         <% count = 0 %>
+        
+    <% if @session.videos.nil? %>
+        
+    <% else %>
         <% @session.videos.each do |v| %>
             <% if count == 0 %>
             <div id="notes" class="col-lg-9 col-lg-offset-4">
@@ -166,7 +170,7 @@ $(document).ready(function(){
                 </div>
             </div>
         <% end %>
-        
+    <% end %>    
     </div>
 </div>
 
