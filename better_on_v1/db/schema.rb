@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170904150018) do
+=======
+ActiveRecord::Schema.define(version: 20171106173135) do
+>>>>>>> flipSession
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +58,17 @@ ActiveRecord::Schema.define(version: 20170904150018) do
     t.boolean  "show_group", default: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "videos", force: :cascade do |t|
+    t.text     "heading"
+    t.text     "link"
+    t.integer  "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> flipSession
   add_foreign_key "comments", "profiles"
   add_foreign_key "comments", "sessions"
 end

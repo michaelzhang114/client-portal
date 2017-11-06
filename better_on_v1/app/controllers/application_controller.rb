@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_profile, :logged_in?, :current_organization
   
-  
+  # def current_session
+  #   @current_session ||= Session.find(session[:profile_id]) if session[:profile_id]
+  # end
   
   def current_profile
     @current_profile ||= Profile.find(session[:profile_id]) if session[:profile_id]
