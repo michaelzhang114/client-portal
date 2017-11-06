@@ -4,13 +4,7 @@ class Profile < ActiveRecord::Base
     belongs_to :organization
     has_many :sessions, dependent: :destroy
     
-<<<<<<< HEAD
-    has_many :comments, dependent: :destroy
-  
-  
-=======
     
->>>>>>> flipSession
     #Validations
     validates :name, presence:true, length: { minimum: 3, maximum: 50 }
     before_save { self.email = email.downcase }
