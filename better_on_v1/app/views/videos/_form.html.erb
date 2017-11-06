@@ -1,0 +1,15 @@
+<%= form_for ([@session, @video]) do |f| %>
+    <p>
+        <%= f.label "Heading -- whatever you want" %><br/>
+        <%= f.text_field :heading %>
+    </p>
+    <p>
+        <%= f.label "Video link" %><br/>
+        <%= f.text_field :link %>
+    </p>
+    
+    
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>

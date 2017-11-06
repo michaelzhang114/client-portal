@@ -55,7 +55,10 @@ $(document).ready(function(){
                     <br>
                     <% if current_profile.admin? %>
                         <%= link_to "Edit this session", edit_session_path(@session) %> |
-                        <%= link_to "Back to all sessions", sessions_path %>
+                        <%= link_to "Back to all sessions", sessions_path %> 
+                        <br>
+                        <br>
+                        <%= link_to "Add videos", new_session_video_path(@session) %>
                     <% else %>
                         <h4 class="card-title">Who sees this?</h4>
                         <hr>
@@ -114,24 +117,56 @@ $(document).ready(function(){
             </div>
             <h4 align="center"><a href="#notes"><span class="glyphicon glyphicon-chevron-down"></span></a></h4>
         </div>
-        <div id="notes" class="col-lg-9 col-lg-offset-4">
-            <div class="card mt-4">
-                <div class="card-body">
-                    <h2 class="card-title">Highlight Reel</h2>
-                    <hr>
-                    <div class="padding-zero embed-responsive embed-responsive-16by9 embed-responsive embed-responsive-16by9">
-                        <% def parse_youtube(url) %>
-                           <% regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/ %>
-                            <% url.match(regex)[1] %>
-                        <% end %>
-                        <% lnk = parse_youtube(@session.highlights) %>
-                        <iframe width="560" height="315" src="<%= "https://www.youtube.com/embed/#{lnk}"%> " 
-                        frameborder="0" allowfullscreen autoplay=true></iframe>
-                    <br>
-                    <br>
+        <!--<div id="notes" class="col-lg-9 col-lg-offset-4">-->
+        <!--    <div class="card mt-4">-->
+        <!--        <div class="card-body">-->
+        <!--            <h2 class="card-title">Highlight Reel</h2>-->
+        <!--            <hr>-->
+        <!--            <div class="padding-zero embed-responsive embed-responsive-16by9 embed-responsive embed-responsive-16by9">-->
+        <!--                <%# def parse_youtube(url) %>-->
+        <!--                   <%# regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/ %>-->
+        <!--                    <%# url.match(regex)[1] %>-->
+        <!--                <%# end %>-->
+        <!--                <%# lnk = parse_youtube(@session.highlights) %>-->
+        <!--                <iframe width="560" height="315" src="<%#= "https://www.youtube.com/embed/#{lnk}"%> " -->
+        <!--                frameborder="0" allowfullscreen autoplay=true></iframe>-->
+        <!--            <br>-->
+        <!--            <br>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
+        <% count = 0 %>
+        <% @session.videos.each do |v| %>
+            <% if count == 0 %>
+            <div id="notes" class="col-lg-9 col-lg-offset-4">
+            <% else %>
+            <div id="notes" >
+            <% end %>
+            <% count = count + 1 %>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h2 class="card-title"><%= v.heading %></h2>
+                        <hr>
+                        <div class="padding-zero embed-responsive embed-responsive-16by9 embed-responsive embed-responsive-16by9">
+                            <% def parse_youtube(url) %>
+                               <% regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/ %>
+                                <% url.match(regex)[1] %>
+                            <% end %>
+                            <% lnk = parse_youtube(v.link) %>
+                            <iframe width="560" height="315" src="<%= "https://www.youtube.com/embed/#{lnk}"%> " 
+                            frameborder="0" allowfullscreen autoplay=true></iframe>
+                        <br>
+                        <br>
+                    </div>
+                    <% if current_profile.admin? %>
+                        <%#= link_to "Delete this video", session_video_path(), method: :delete, data: {  confirm: "Are you sure?" } %>
+                        <%= link_to "delete", [@session, v], :method  => :delete, data: {  confirm: "Are you sure?" } %>
+                        
+                    <% end %>
                 </div>
             </div>
-        </div>
+        <% end %>
+        
     </div>
 </div>
 

@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   
   #get 'profile/home', to: 'profile#home'
   
-  resources :sessions
+  resources :sessions do 
+    resources :videos
+  end
   resources :profiles
   resources :organizations
+  
   
   get 'login', to: 'portals#new'
   post 'login', to: 'portals#create'

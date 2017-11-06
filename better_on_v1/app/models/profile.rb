@@ -3,8 +3,8 @@ class Profile < ActiveRecord::Base
     #Associations
     belongs_to :organization
     has_many :sessions, dependent: :destroy
-  
-  
+    
+    
     #Validations
     validates :name, presence:true, length: { minimum: 3, maximum: 50 }
     before_save { self.email = email.downcase }

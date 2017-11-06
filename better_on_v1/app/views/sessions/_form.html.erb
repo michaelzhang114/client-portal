@@ -4,8 +4,8 @@
         <%= f.collection_select :profile_id, Profile.all, :id, :name, include_blank: true %>
     </p>
     <p>
-        <%= f.label "Highlight reel link" %><br/>
-        <%= f.text_field :highlights %>
+        <% f.label "Highlight reel link" %><br/>
+        <% f.text_field :highlights %>
     </p>
     <p>
         <%= f.label "Coach response link" %><br/>
@@ -28,3 +28,4 @@
         <% end %>
     </ul>
 <% end %>
+
