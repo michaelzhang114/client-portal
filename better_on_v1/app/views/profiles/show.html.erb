@@ -22,7 +22,7 @@
                   <% regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/ %>
                   <% url.match(regex)[1] %>
                 <% end %>
-                <% nail = parse_youtube(sesh.highlights) %>
+                <% nail = parse_youtube(sesh.feedback) %>
                 <%= link_to session_path(sesh) do %>
                   <img class="card-img-top" src=" <%= "https://img.youtube.com/vi/#{nail}/mqdefault.jpg" %> ">
                 <% end %>
