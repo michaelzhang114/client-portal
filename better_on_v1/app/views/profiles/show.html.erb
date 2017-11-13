@@ -28,7 +28,11 @@
                 <% end %>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <%= link_to "Session #{count}", session_path(sesh) %>
+                    <% if sesh.title.nil? %>
+                      <%= link_to "Session #{count}", session_path(sesh) %>
+                    <% else %>
+                      <%= link_to "#{sesh.title}", session_path(sesh) %>
+                    <% end %>
                     <!--<small class="priv">-->
                       
                     <!--  <label class="switch">-->

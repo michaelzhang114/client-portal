@@ -3,6 +3,12 @@
         <%= f.label :profile %><br/>
         <%= f.collection_select :profile_id, Profile.all, :id, :name, include_blank: true %>
     </p>
+    
+    <p>
+        <%= f.label "Session name" %><br/>
+        <%= f.text_field :title %>
+    </p>
+    
     <p>
         <% f.label "Highlight reel link" %><br/>
         <% f.text_field :highlights %>
