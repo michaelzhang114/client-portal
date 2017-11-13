@@ -57,7 +57,7 @@ class SessionsController < ApplicationController
     
     private
     def session_params
-      params.require(:session).permit(:profile_id, :title, :highlights, :feedback, :homework, :show_group)
+      params.require(:session).permit(:profile_id, :highlights, :feedback, :homework, :show_group, :title)
     end
     
     def require_same_profile
