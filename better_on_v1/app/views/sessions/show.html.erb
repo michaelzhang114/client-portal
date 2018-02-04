@@ -1,7 +1,6 @@
 <% if current_profile == @session.profile || current_profile.admin? %>
-
+<!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">-->
 <script>
-
 $(document).ready(function(){
     
     // $("#show_group").on('checked', function(){
@@ -32,12 +31,52 @@ $(document).ready(function(){
   });
 });
 
-
-
-
-
-
 </script>
+
+
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>-->
+<!--<script src="https://code.jquery.com/jquery-2.2.0.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+
+
+<!--<script>-->
+<!--        jQuery(function($) {-->
+<!--        var panelList = $('#draggablePanelList');-->
+
+<!--        panelList.sortable({-->
+            <!--// Only make the .panel-heading child elements support dragging.-->
+            <!--// Omit this to make then entire <li>...</li> draggable.-->
+<!--            handle: '.panel-heading', -->
+<!--            update: function() {-->
+<!--                $('.panel', panelList).each(function(index, elem) {-->
+<!--                     var $listItem = $(elem),-->
+<!--                         newIndex = $listItem.index();-->
+
+                     <!--// Persist the new indices.-->
+<!--                });-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+
+<!--    jQuery(function($) {-->
+<!--        var panelList2 = $('#draggablePanelList2');-->
+
+<!--        panelList2.sortable({-->
+            <!--// Only make the .panel-heading child elements support dragging.-->
+            <!--// Omit this to make then entire <li>...</li> draggable.-->
+<!--            handle: '.panel-heading', -->
+<!--            update: function() {-->
+<!--                $('.panel', panelList2).each(function(index, elem) {-->
+<!--                     var $listItem = $(elem),-->
+<!--                         newIndex = $listItem.index();-->
+
+                     <!--// Persist the new indices.-->
+<!--                });-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
 
 <div class="container container-sesh">
     <br>
@@ -48,7 +87,7 @@ $(document).ready(function(){
                 <div class="card-body">
                     <h4 class="card-title">A few notes:</h4>
                     <hr>
-                    <div class="well">
+                    <div class="well pre-scrollable">
                         
                         <p><%= simple_format(@session.homework) %></p>
                     </div>
@@ -139,6 +178,27 @@ $(document).ready(function(){
         
     <% if @session.videos.nil? %>
         
+<!--        <div class="container">-->
+<!--  <ul id="draggablePanelList" class="list-unstyled">-->
+<!--      <li class="panel panel-info">-->
+<!--          <div class="panel-heading">You can drag this panel.</div>-->
+<!--          <div class="panel-body">Content here ...</div>-->
+<!--      </li>-->
+<!--      <li class="panel panel-info">-->
+<!--          <div class="panel-heading">You can drag this panel too.</div>-->
+<!--          <div class="panel-body">More content here...</div>-->
+<!--      </li>-->
+<!--      <li class="panel panel-info">-->
+<!--          <div class="panel-heading">You can drag this panel too.</div>-->
+<!--          <div class="panel-body">More blah content here...</div>-->
+<!--      </li>-->
+<!--      <li class="panel panel-info">-->
+<!--          <div class="panel-heading">You can drag this panel too.</div>-->
+<!--          <div class="panel-body">Another content panel here...</div>-->
+<!--      </li>-->
+<!--  </ul>-->
+<!--</div>-->
+        
     <% else %>
         <% @session.videos.each do |v| %>
             <% if count == 0 %>
@@ -149,18 +209,23 @@ $(document).ready(function(){
             <% count = count + 1 %>
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h2 class="card-title"><%= v.heading %></h2>
-                        <hr>
-                        <div class="padding-zero embed-responsive embed-responsive-16by9 embed-responsive embed-responsive-16by9">
-                            <% def parse_youtube(url) %>
-                               <% regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/ %>
-                                <% url.match(regex)[1] %>
-                            <% end %>
-                            <% lnk = parse_youtube(v.link) %>
-                            <iframe width="560" height="315" src="<%= "https://www.youtube.com/embed/#{lnk}"%> " 
-                            frameborder="0" allowfullscreen autoplay=true></iframe>
-                        <br>
-                        <br>
+                        <!--<ul id="draggablePanelList" class="list-unstyled">-->
+                        <!--  <li class="panel panel-info">-->
+                              <h2 class="card-title"><%= v.heading %></h2>
+                                <hr>
+                                <div class="padding-zero embed-responsive embed-responsive-16by9 embed-responsive embed-responsive-16by9">
+                                    <% def parse_youtube(url) %>
+                                       <% regex = /(?:.be\/|\/watch\?v=|\/(?=p\/))([\w\/\-]+)/ %>
+                                        <% url.match(regex)[1] %>
+                                    <% end %>
+                                    <% lnk = parse_youtube(v.link) %>
+                                    <iframe width="560" height="315" src="<%= "https://www.youtube.com/embed/#{lnk}"%> " 
+                                    frameborder="0" allowfullscreen autoplay=true></iframe>
+                                <br>
+                                <br>
+                        <!--  </li>-->
+                        <!--</ul>-->
+                        
                     </div>
                     <% if current_profile.admin? %>
                         <%#= link_to "Delete this video", session_video_path(), method: :delete, data: {  confirm: "Are you sure?" } %>

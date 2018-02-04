@@ -2,6 +2,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.nav {
+    max-height:300px;
+    overflow-y:auto;  
+}
+
+
+
 .btn-sq-lg {
   border-radius: 20px;
   width: 200px;
@@ -205,7 +212,12 @@ input:checked + .slider:before {
   font-size: 60px;
 }
 
-
+#draggablePanelList .panel-heading {
+    cursor: move;
+}
+#draggablePanelList2 .panel-heading {
+    cursor: move;
+}
 
 #logo {
     float: left;
